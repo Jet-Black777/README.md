@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pesan Rahasia 💌</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    video.bgVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .centerBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .emoji {
+      font-size: 100px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2em;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1em;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    #dateText {
+      font-size: 1.2em;
+      color: #fff;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      color: #fff;
+      background: #ff5e7e;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      margin: 5px;
+    }
+    button:hover {
+      transform: scale(1.1);
+      background: #ff3366;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="bgVideo">
+    <source src="https://files.catbox.moe/hzhcfv.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="centerBox" id="firstPage">
+    <div class="emoji">💌</div>
+    <button onclick="openLetter()">Buka 💌</button>
+  </div>
+
+  <div class="centerBox" id="secondPage" style="display: none;">
+    <h1>Hai Kamu 🧸💌</h1>
+    <p id="mainText">Aku Denzy... sebenernya aku suka sama kamu. Kamu mau nggak jadi pacar aku? 🥺👉👈</p>
+    <button onclick="yes()">Mau 😳💖</button>
+    <button onclick="no()">Gak Mau 😢</button>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("firstPage").style.display = "none";
+      document.getElementById("secondPage").style.display = "block";
+    }
+    function yes() {
+      const date = new Date();
+      const day = date.getDate();
+      const month = date.toLocaleString('id-ID', { month: 'long' });
+      const year = date.getFullYear();
+      document.getElementById("mainText").innerText = `Yayyy! Sekarang kamu resmi jadi pacarku! 💑❤️ Kita jadian tanggal ${day} ${month} ${year} 💖✨`;
+    }
+    function no() {
+      alert("gak boleh😠, harus mau 😝");
+    }
+  </script>
+</body>
+</html>
